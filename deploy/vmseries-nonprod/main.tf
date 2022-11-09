@@ -61,7 +61,7 @@ module "vpc-fw-mgmt" {
 }
 
 resource "google_compute_network_peering" "shared_service_to_fw_inside" {
-  name                 = "${var.name_prefix}shared_service_to_fw_inside"
+  name                 = "${var.name_prefix}shared-service-to-fw-inside"
   network              = data.google_compute_network.shared-services.id
   peer_network         = module.vpc.networks["${var.name_prefix}fw-inside-shared-services"].id
   export_custom_routes = true
@@ -69,7 +69,7 @@ resource "google_compute_network_peering" "shared_service_to_fw_inside" {
 }
 
 resource "google_compute_network_peering" "fw_inside_to_shared_service" {
-  name                 = "${var.name_prefix}fw_inside_to_shared_service"
+  name                 = "${var.name_prefix}fw-inside-to-shared-service"
   network              = module.vpc.networks["${var.name_prefix}fw-inside-shared-services"].id
   peer_network         = data.google_compute_network.shared-services.id
   export_custom_routes = false
