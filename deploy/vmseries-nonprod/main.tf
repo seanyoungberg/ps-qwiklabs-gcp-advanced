@@ -28,11 +28,11 @@ module "vpc" {
       delete_default_routes_on_create = true
     },
     {
-      name                            = "${var.name_prefix}fw-inside-shared-services"
-      subnetwork_name                 = "${var.name_prefix}fw-inside-shared-services"
-      ip_cidr_range                   = var.ip_cidr_range_fw_inside_shared_services
+      name                            = "${var.name_prefix}prod"
+      subnetwork_name                 = "${var.name_prefix}prod"
+      ip_cidr_range                   = var.ip_cidr_range_prod
       delete_default_routes_on_create = true
-      allowed_sources                 = setunion(var.google_healthcheck_sources, var.allowed_sources_fw_inside_shared_services)
+      allowed_sources                 = setunion(var.google_healthcheck_sources, var.allowed_sources_prod)
       delete_default_routes_on_create = true
     }
   ]

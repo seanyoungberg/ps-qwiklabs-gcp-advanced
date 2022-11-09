@@ -4,13 +4,13 @@ region      = "europe-west4"
 name_prefix = "gcp-lab-"
 
 # Networking
-ip_cidr_range_panorama = "10.210.38.0/28" # UPDATE HERE!
+ip_cidr_range_panorama = "10.210.38.0/28"
 allowed_sources_mgmt   = ["0.0.0.0/0"] # For production deployments this should be limited to known sources
 
 # Panorama
 panorama = {
   panorama1 = {
-    private_static_ip = "10.210.38.5" # UPDATE HERE
+    private_static_ip = "10.210.38.5"
     }
 }
 
@@ -23,5 +23,5 @@ panorama_common = {
   }
 }
 
-public_key_path = "~/.ssh/gcp-lab-key.pem"
+public_key_path = "~/.ssh/gcp-lab-key.pub"
 custom_image = "projects/panw-gcp-team-testing/global/images/panorama-1023"

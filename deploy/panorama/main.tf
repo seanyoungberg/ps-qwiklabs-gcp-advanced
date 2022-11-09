@@ -73,6 +73,3 @@ resource "google_compute_firewall" "vmseries" {
   source_tags = ["vmseries"]
   target_tags = ["panorama"]
 }
-
-
-create_network=false
