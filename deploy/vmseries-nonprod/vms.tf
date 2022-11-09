@@ -9,7 +9,9 @@ variable "vm_type" {
   default = "f1-micro"
 }
 
-variable "vm_user" {}
+variable "vm_user" {
+  default = "admin"
+}
 
 variable "vm_scopes" {
   type = list(string)

@@ -60,21 +60,21 @@ module "vpc-fw-mgmt" {
   ]
 }
 
-# resource "google_compute_network_peering" "panorama_to_mgmt_nonprod" {
-#   name                 = "${var.name_prefix}panorama-to-mgmt"
-#   network              = data.google_compute_network.panorama.id
-#   peer_network         = module.vpc.networks["${var.name_prefix}mgmt"].id
-#   export_custom_routes = true
-#   import_custom_routes = false
-# }
+resource "google_compute_network_peering" "shared_service_to_fw_inside" {
+  name                 = "${var.name_prefix}shared_service_to_fw_inside"
+  network              = data.google_compute_network.shared-services.id
+  peer_network         = module.vpc.networks["${var.name_prefix}fw-inside-shared-services"].id
+  export_custom_routes = true
+  import_custom_routes = false
+}
 
-# resource "google_compute_network_peering" "mgmt_nonprod_to_panorama" {
-#   name                 = "${var.name_prefix}mgmt-to-panorama"
-#   network              = module.vpc.networks["${var.name_prefix}mgmt"].id
-#   peer_network         = data.google_compute_network.panorama.id
-#   export_custom_routes = false
-#   import_custom_routes = true
-# }
+resource "google_compute_network_peering" "fw_inside_to_shared_service" {
+  name                 = "${var.name_prefix}fw_inside_to_shared_service"
+  network              = module.vpc.networks["${var.name_prefix}fw-inside-shared-services"].id
+  peer_network         = data.google_compute_network.shared-services.id
+  export_custom_routes = false
+  import_custom_routes = true
+}
 
 
 resource "google_compute_router" "router" {

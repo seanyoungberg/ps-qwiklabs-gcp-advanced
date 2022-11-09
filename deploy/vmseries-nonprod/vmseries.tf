@@ -86,6 +86,7 @@ module "ilb_internal" {
   backends            = module.vmseries.backends
   allow_global_access = true
   health_check_port   = 443
+  ip_address          = "10.216.38.34"
 }
 
 module "ilb_interconnect" {
@@ -99,6 +100,7 @@ module "ilb_interconnect" {
   backends            = module.vmseries.backends
   allow_global_access = true
   health_check_port   = 443
+  ip_address          = "10.217.37.2"
 }
 
 module "elb_internet" {
@@ -114,6 +116,6 @@ module "elb_internet" {
     }
   }
 
-  health_check_http_port         = 80
+  health_check_http_port         = 443
   health_check_http_request_path = "/"
 }
