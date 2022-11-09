@@ -24,7 +24,7 @@ variable "vm_scopes" {
 
 
 resource "google_compute_instance" "prod" {
-  name                      = "${local.prefix_region0}-prod-workload"
+  name                      = "prod-workload"
   machine_type              = var.vm_type
   zone                      = data.google_compute_zones.this.names[0]
   can_ip_forward            = false
