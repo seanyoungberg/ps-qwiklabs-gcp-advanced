@@ -24,7 +24,7 @@ allowed_sources_prod = ["10.0.0.0/8"]
 # VM-Series
 #vmseries = {}
 vmseries_common = {
-  image                 = "projects/paloaltonetworksgcp-public/global/images/vmseries-flex-byol-1023"
+  image                 = "projects/paloaltonetworksgcp-public/global/images/vmseries-flex-byol-1022h2"
   machine_type          = "n1-standard-4"
   # min_cpu_platform      = "Intel Cascade Lake"
   vmseries_per_zone_min = 1
@@ -45,3 +45,7 @@ vmseries_common = {
 
 }
 
+## Test VMs
+
+vm_image = "https://www.googleapis.com/compute/v1/projects/panw-gcp-team-testing/global/images/ubuntu-2004-lts-apache"
+vm_type  = "f1-micro"
